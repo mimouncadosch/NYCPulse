@@ -16,15 +16,15 @@ var app = module.exports = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
-app.use(express.logger('dev'));
-app.use(express.bodyParser()); 	
-app.use(express.methodOverride()); 	
+// app.use(express.logger('dev'));
+// app.use(express.bodyParser()); 	
+// app.use(express.methodOverride()); 	
 //app.use(app.router); – not sure if we need this
 
 // development only
-if (app.get('env') === 'development') {
-	app.use(express.errorHandler());
-}
+// if (app.get('env') === 'development') {
+// 	app.use(express.errorHandler());
+// }
 
 // production only
 if (app.get('env') === 'production') {
@@ -44,13 +44,16 @@ app.use("/lib", express.static(__dirname + "/public/lib"));
 
 // JSON API
 app.get('/api/name', api.name);
+app.get('/api/times', api.times);
 
 // redirect all others to the index (HTML5 history)
-app.all("/*", function(req, res, next) {
+app.get("/", function(req, res, next) {
 	res.sendfile("index.html", { root: __dirname + "/public" });
 });
 
-
+app.get("/train.png", function(req, res, next) {
+	res.sendfile("train.png", { root: __dirname + "/public" });
+});
 /**
  * Start Server
  */
