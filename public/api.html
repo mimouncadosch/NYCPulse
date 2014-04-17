@@ -1,0 +1,131 @@
+<html>
+<head>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/api.css">
+	<title>REST API for MTA Subway Data</title>
+</head>
+<body>
+
+<div class="container api">
+<h1>REST API for NYC Subway Data</h1>
+
+<h3>The Metropolitan Transportation Authority offers subway data in GTFS format, which is not particularly useful for developers.</h3>
+<h3>My hope is that this API will make it easier for you to integrate this data into your applications.</h3> 
+
+<h2>Documentation</h2>
+<hr>
+<h3>Subway station codes</h3>
+<p>The MTA uses a set of codes to refer to subway stations in New York. In order to use these codes for other requests in this API, make the request:</p>
+<h4>Sample Request</h4>
+<code>mtaapi.herokuapp.com/stations</code>
+
+<h4>Sample response</h4>
+<pre><code>
+{ 
+"result": [
+	    {
+	      "id": "901N", 
+	      "name": "Grand Central - 42 St"
+	    }, 
+	    {
+	      "id": "902N", 
+	      "name": "Times Sq - 42 St"
+	    }, 
+	    ...
+	]
+}
+</code></pre>
+<hr>
+<h3>Subway station data</h3>
+
+<p>Given a station code (see above), get name and coordinates of every station.</p>
+<h4>Parameters</h4>
+<pre>id: the station id. Ex: 120S for 96th St.</pre>
+<h4>Sample Request</h4>
+<code>mtaapi.herokuapp.com/stop?id=120S</code>
+
+<h4>Sample response</h4>
+<pre><code>
+{
+  "result": {
+    "lat": "40.752769", 
+    "lon": "-73.979189", 
+    "name": "Grand Central - 42 St"
+  }
+}
+</code></pre>
+
+<h3>Arrival times</h3>
+<p>This endpoint provides all subway arrival times at a given station.</p>
+<h4>Parameters</h4>
+<pre>id: the station id. Ex: 120S for 96th St.</pre>
+<h4>Sample Request</h4>
+<code>mtaapi.herokuapp.com/api?id=120S</code>
+
+<h4>Sample response</h4>
+<pre><code>
+{
+  "result": {
+    "arrivals": [
+      "06:30:00", 
+      "08:38:00", 
+      "10:45:00", 
+      "12:55:30", 
+      ...
+      "12:34:00", 
+      "15:22:00", 
+      "18:10:00", 
+      "20:58:00"
+    ], 
+    "lat": "40.793919", 
+    "lon": "-73.972323", 
+    "name": "96 St"
+  }
+}
+</code></pre>
+
+<hr>
+
+<h3>Times</h3>
+<p>This endpoint provides all subway stations where a train is stopping at the time specified</p>
+<h4>Parameters</h4>
+<pre>hour: the hour, from 00:59 to 23:59 (European format). Ex: 23 for 11pm, 09 for 9am</pre>
+<pre>minute: the minutes, from 0 to 59</pre>
+<h4>Sample Request</h4>
+<code>mtaapi.herokuapp.com/times?hour=10&minute=25</code>
+
+<h4>Sample response</h4>
+<pre><code>
+	All stations where a train arrives at 10:25am
+	{
+  "result": [
+    {
+      "arrival": "10:25:00", 
+      "id": "D22N", 
+      "lat": "40.718267", 
+      "lon": "-73.993753", 
+      "name": "Grand St"
+    }, 
+    ...
+    {
+      "arrival": "10:25:00", 
+      "id": "H13S", 
+      "lat": "40.585307", 
+      "lon": "-73.820558", 
+      "name": "Beach 98 St"
+    }
+  ]
+}
+</code></pre>
+</div>
+</body>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+<footer>
+<p>Source: <a href="http://web.mta.info/developers/developer-data-terms.html#data">http://web.mta.info/developers/developer-data-terms.html#data</a></p>
+Courtesy of @MPCadosch
+</footer>
+</html>

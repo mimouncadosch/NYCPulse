@@ -51,6 +51,9 @@ app.get("/", function(req, res, next) {
 	res.sendfile("index.html", { root: __dirname + "/public" });
 });
 
+app.get("/api", function(req, res, next) {
+	res.sendfile("api.html", {root: __dirname + "/public" });
+});
 app.get("/train.png", function(req, res, next) {
 	res.sendfile("train.png", { root: __dirname + "/public" });
 });

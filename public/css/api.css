@@ -1,0 +1,46 @@
+
+
+h1{
+	font-family: 'Helvetica';
+	font-weight: 500;
+	font-size: 50px;
+
+}
+h2{
+	font-family: 'Helvetica'	
+}
+h3{
+	font-family: 'Helvetica';
+	font-size: 18px;	
+	font-weight: 100;
+}
+
+h4{
+	font-family: 'Helvetica';
+	font-size: 14px;
+}
+
+p{
+	font-family: 'Helvetica';
+	font-weight: 100;
+	font-size: 13px;
+
+}
+
+code{
+	margin-left: 10%;
+	margin-right: 20%;
+	font-size: 11px;
+}
+
+pre{
+	margin-left: 10%;
+	margin-right: 20%;
+	font-size: 11px;
+}
+.container{
+	margin-top: 2%;
+}
+footer{
+	margin-left: 5%;
+}
