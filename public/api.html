@@ -4,13 +4,20 @@
 	<link rel="stylesheet" type="text/css" href="css/api.css">
 	<title>REST API for MTA Subway Data</title>
 </head>
+<nav class="navbar navbar-default" id="api-nav" role="navigation">
+	<h1>NYC Subway Data</h1>
+</nav>
+
+
+
 <body>
-
 <div class="container api">
-<h1>REST API for NYC Subway Data</h1>
 
-<h3>The Metropolitan Transportation Authority offers subway data in GTFS format, which is not particularly useful for developers.</h3>
-<h3>My hope is that this API will make it easier for you to integrate this data into your applications.</h3> 
+<h2>This is a RESTful API for NYC subway data from the MTA (Metropolitan Transportation Authority)</h2>
+<h3>The MTA offers subway data in GTFS format, which is not particularly useful for developers.</p>	
+My hope is that this API will make it easier for you to integrate this data into your applications.</h3> 
+
+
 
 <h2>Documentation</h2>
 <hr>
@@ -20,8 +27,7 @@
 <code>mtaapi.herokuapp.com/stations</code>
 
 <h4>Sample response</h4>
-<pre><code>
-{ 
+<pre><code>{ 
 "result": [
 	    {
 	      "id": "901N", 
@@ -45,8 +51,7 @@
 <code>mtaapi.herokuapp.com/stop?id=120S</code>
 
 <h4>Sample response</h4>
-<pre><code>
-{
+<pre><code>{
   "result": {
     "lat": "40.752769", 
     "lon": "-73.979189", 
@@ -55,6 +60,7 @@
 }
 </code></pre>
 
+<hr>
 <h3>Arrival times</h3>
 <p>This endpoint provides all subway arrival times at a given station.</p>
 <h4>Parameters</h4>
@@ -63,8 +69,7 @@
 <code>mtaapi.herokuapp.com/api?id=120S</code>
 
 <h4>Sample response</h4>
-<pre><code>
-{
+<pre><code>{
   "result": {
     "arrivals": [
       "06:30:00", 
@@ -95,8 +100,7 @@
 <code>mtaapi.herokuapp.com/times?hour=10&minute=25</code>
 
 <h4>Sample response</h4>
-<pre><code>
-	All stations where a train arrives at 10:25am
+<pre><code>All stations where a train arrives at 10:25am
 	{
   "result": [
     {
@@ -125,7 +129,7 @@
 
 
 <footer>
+<h3>Questions? Comments?<a href="https://twitter.com/MPCadosch"> @MPCadosch</a></h3>
 <p>Source: <a href="http://web.mta.info/developers/developer-data-terms.html#data">http://web.mta.info/developers/developer-data-terms.html#data</a></p>
-Courtesy of @MPCadosch
 </footer>
 </html>

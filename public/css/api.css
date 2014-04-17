@@ -1,4 +1,13 @@
+#api-nav{
+	background-color: #575757;
+	border: none;
+	border-radius: 0;
+}
 
+#api-nav h1{
+	margin-left: 5%;
+	color: #FFFFFF;
+}
 
 h1{
 	font-family: 'Helvetica';
@@ -7,6 +16,7 @@ h1{
 
 }
 h2{
+	font-size: 24px;
 	font-family: 'Helvetica'	
 }
 h3{
@@ -27,15 +37,16 @@ p{
 
 }
 
+
 code{
-	margin-left: 10%;
+	margin-left: 0%;
 	margin-right: 20%;
 	font-size: 11px;
 }
 
 pre{
-	margin-left: 10%;
-	margin-right: 20%;
+	margin-left: 0%;
+	margin-right: 40%;
 	font-size: 11px;
 }
 .container{
