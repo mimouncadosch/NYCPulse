@@ -43,7 +43,10 @@ h2{
 }
 #main-nav{
   
-  background-color: #575757;
+  background-color:#000000; 
+    opacity:.7; /* opacity is supported in most newer browsers only */
+    -moz-opacity: 0.5; /* older mozilla browsers */
+    filter: alpha(opacity=50); /* older ie browsers */
   border: none;
   border-radius: 0;
   color: #FFFFFF;
