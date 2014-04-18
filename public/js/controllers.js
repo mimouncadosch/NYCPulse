@@ -10,7 +10,8 @@ angular.module('myApp.controllers', []).
 		function initialize() {
 		  var mapOptions = {
 		    center: new google.maps.LatLng(40.759661, -73.982502),
-		    zoom: 13
+		    zoom: 13,
+		    disableDefaultUI: true
 		  };
 		  map = new google.maps.Map(document.getElementById("map-canvas"),
 		      mapOptions);
@@ -39,6 +40,8 @@ angular.module('myApp.controllers', []).
 
 			console.log(hr, min);
 
+			$scope.arrivals = {};
+
 			$http({
 				method: 'GET',
 				url: '/api/times',
@@ -51,6 +54,7 @@ angular.module('myApp.controllers', []).
 				clearMap();			// Clear map of previous markers
 				addMarkers(data);	// Add new markers to array
 				populateMap(data);	// Populate map anew
+				$scope.arrivals = data.result;
 			}).error(function (data, status, headers, config) {
 				console.log('error!');
 			});
@@ -60,14 +64,18 @@ angular.module('myApp.controllers', []).
 		function addMarkers(data) {
 			console.log('adding markers');
 			var res = data.result;
+			// var infowindow = null;
 			for (var i = 0; i < res.length; i++) {
 				var stop = res[i];
 				var myLatlng = new google.maps.LatLng(stop['lat'], stop['lon']);
+				var contents = '<div id="content">' + '<h3 id="window-head">' + stop['name'] + '</h3>'+
+				'<h4> Last train arrived here at ' + stop['arrival'] + '</h4>' + '</div>'
 				var marker = new google.maps.Marker({
 					position: myLatlng,
 					title: stop['name'],
 					icon: 'train.png',
-					animation: google.maps.Animation.DROP
+					animation: google.maps.Animation.DROP, 
+					html: contents
 				});
 				markers.push(marker);
 			}

@@ -3,15 +3,46 @@
 	<head>
 		<meta charset="utf8">
 		<base href="/">
+		<link rel="icon" type="image/png" href="http://example.com/myicon.png">
 		<title>The Pulse of New York</title>
 		<script type="text/javascript"
     		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8LeyaDeV6VXi7os1k-XO_kATNyVkVDQw&sensor=false">
     	</script>
+    	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/app.css">
 	</head>
+
 	<body>
 		<div ng-controller="AppCtrl">
+		<nav class="navbar navbar-default" id="main-nav" role="navigation">
+		<h1>The Pulse of New York</h1>
+		</nav>
 		<div id="map-canvas"></div>
+		<div id="wrapper">
+		    <div id="sidebar-wrapper">
+		        <ul class="sidebar-nav">
+		            <li>Recent</li>
+		            <div id="arrivals" ng-repeat="arrival in arrivals">
+		            	Train arriving at {{arrival.name}} : {{arrival.arrival}}
+		            	<hr>
+		            </div>
+		        </ul>
+		    </div>
+		    <div id="page-content-wrapper">
+		        <div class="page-content">
+		            <div class="container">
+		                <div class="row">
+		                    <div class="col-md-12">
+		                        <!-- content of page -->
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+
+
 		</div>
 	</body>
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
