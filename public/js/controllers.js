@@ -55,7 +55,9 @@ angular.module('myApp.controllers', []).
 				addMarkers(data);	// Add new markers to array
 				populateMap(data);	// Populate map anew
 				$scope.arrivals = data.result;
-				$scope.arrivals.length = data.length;
+				if(data) {
+					$scope.arrivals.length = data.length;	
+				}
 			}).error(function (data, status, headers, config) {
 				console.log('error!');
 			});
