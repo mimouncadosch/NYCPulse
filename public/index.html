@@ -15,7 +15,8 @@
 	<body>
 		<div ng-controller="AppCtrl">
 		<nav class="navbar navbar-default" id="main-nav" role="navigation">
-		<h1>The Pulse of New York</h1>
+		<h1>The Pulse of New York.</h1><h2 ng-model="arrivals">There are {{arrivals.length}} trains stopping this minute.</h2> 
+		
 		</nav>
 		<div id="map-canvas"></div>
 		<div id="wrapper">
@@ -23,7 +24,7 @@
 		        <ul class="sidebar-nav">
 		            <li>Recent</li>
 		            <div id="arrivals" ng-repeat="arrival in arrivals">
-		            	Train arriving at {{arrival.name}} : {{arrival.arrival}}
+		            	{{arrival.name}} at {{arrival.arrival}}
 		            	<hr>
 		            </div>
 		        </ul>

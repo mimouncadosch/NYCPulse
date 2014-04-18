@@ -20,25 +20,25 @@ angular.module('myApp.controllers', []).
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 		$('document').ready(function() {
-			console.log('Ready, let us start');
+			// console.log('Ready, let us start');
 			tick();
 		});
 
 		function tick() {
-			console.log('calling tick');
+			// console.log('calling tick');
 			var now = new Date();
 			getData(now);
 			var t = setTimeout(tick, 30000);
 		}
 
 		function getData(time) {
-			console.log('calling getData');
-			console.log(time);
+			// console.log('calling getData');
+			// console.log(time);
 			// Add 0 in front of time if it's less than 10am
 			var hr = (hr = time.getHours()) < 10 ? '0' + hr : hr.toString()
 			var min = (min = time.getMinutes()) < 10 ? '0' + min : min.toString()
 
-			console.log(hr, min);
+			// console.log(hr, min);
 
 			$scope.arrivals = {};
 
@@ -50,11 +50,12 @@ angular.module('myApp.controllers', []).
 					hr: hr
 				}
 			}).success(function (data, status, headers, config) {
-				console.log('markers', markers.length);
+				// console.log('markers', markers.length);
 				clearMap();			// Clear map of previous markers
 				addMarkers(data);	// Add new markers to array
 				populateMap(data);	// Populate map anew
 				$scope.arrivals = data.result;
+				$scope.arrivals.length = data.length;
 			}).error(function (data, status, headers, config) {
 				console.log('error!');
 			});
@@ -62,7 +63,7 @@ angular.module('myApp.controllers', []).
 
 		// Add relevant markers to array of markers
 		function addMarkers(data) {
-			console.log('adding markers');
+			// console.log('adding markers');
 			var res = data.result;
 			// var infowindow = null;
 			for (var i = 0; i < res.length; i++) {

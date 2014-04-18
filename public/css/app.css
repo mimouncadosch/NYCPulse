@@ -37,6 +37,10 @@ h1{
   font-family: 'Lato';
   font-weight: 300;
 }
+h2{
+  font-family: 'Lato';
+  font-weight: 300; 
+}
 #main-nav{
   
   background-color: #575757;
@@ -85,7 +89,7 @@ li {
   color: #FFFFFF;
   font-size: 18px;
   font-family: 'Lato';
-  font-weight: 100;
+  font-weight: 300;
 
 }
 
@@ -93,5 +97,13 @@ li {
   color: #FFFFFF;
   font-size: 16px;
   font-family: 'Lato';
-  font-weight: 100;
+  font-weight: 300;
+}
+
+#num-arrivals{
+  color: #FFFFFF;
+  font-size: 16px;
+  font-family: 'Lato';
+  font-weight: 300; 
+  margin-left: 50%;
 }
