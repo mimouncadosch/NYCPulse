@@ -110,3 +110,7 @@ li {
   font-weight: 300; 
   margin-left: 50%;
 }
+
+#disqus_thread{
+  margin-right: 5%;
+}
